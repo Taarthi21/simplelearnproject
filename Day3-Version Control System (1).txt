@@ -1,0 +1,125 @@
+Version Control System
+
+Installation of Git:
+$ sudo apt install -y git
+
+Verify git installation:
+$ git --version
+
+Create a directory:
+$ mkdir myrepo
+
+Enter inside the directory:
+$ cd myrepo
+$ ls -la
+
+Configure your git tool:
+Name & Email
+
+Levels of Configurations:
+3 levels:
+  - system -> for the entire machine  - lowest preference
+  - global -> for the current user  - second highest preference
+  - local -> for the local directory/repo - highest preference
+
+$ git config --global user.name "YOUR_NAME"
+$ git config --global user.email "YOUR_EMAIL_ID"
+
+$ git config --list
+
+Initialize the repo on a folder:
+$ git init
+$ ls -la
+
+Check the status of a git repo:
+$ git status
+
+Working Directory:
+- Untracked
+- Tracked (git add) - staging/caching
+  - new file (file added for the first time)
+  - modified (edited file)
+- committed - create a version
+
+
+$ echo "file 1 content" > file1.txt
+$ git status
+$ git add file1.txt
+[OR]
+$ git add .
+$ git status
+
+
+Add a new version(version will be created from the staging area):
+$ git commit -m "My first commit with file1.txt - single line file"
+$ git log
+
+$ git status
+
+
+$ echo "Second line" >> file1.txt
+$ echo "file2 content - single line" > file2.txt
+
+$ git status
+
+$ git add file1.txt file2.txt
+[OR]
+$ git add *.txt
+[OR]
+$ git add .
+$ git commit -m "My second commit with second line added to file1 and new file - file2 added"
+[OR]
+- Add to staging and commit - both using a single command - will not work for untracked files
+$ git commit -a -m "My second commit with second line added to file1 and new file - file2 added"
+
+$ git log
+$ git log --oneline
+$ git log --oneline --all
+$ git log --oneline --all --decorate
+
+Version1:
+- file1.txt -> single line
+
+Version2:
+- file2.txt -> single line
+- file1.txt -> two lines
+
+Compare versions:
+$ git diff <commit_id_1> <commit_id_2>
+
+Switch between versions(working dir will be updated):
+$ ls -l
+$ git checkout <commit_id_1>
+$ ls -l
+
+$ git log --oneline --all --decorate
+
+$ git checkout master
+
+
+Remote repo:
+GitHub
+Local repo (repo on local machine) -> to GitHub account (remote repo)
+
+Rename our branch name from master to main:
+$ git branch -M main
+$ git log --oneline --all --decorate
+
+Connect our local repo with the remote repo:
+$ git remote
+$ git remote -v
+
+$ git remote add origin git@github.com:abhijithvg/mydemo-oct21.git
+$ git remote
+$ git remote -v
+
+Authorization:
+Connect your local machine with our github account:
+$ ssh-keygen
+[Press enter 3 times]
+
+$ cat ~/.ssh/id_rsa.pub
+[COPY THE PUBLIC KEY]
+
+Push your local repo to remote repo:
+$ git push -u origin main

@@ -1,0 +1,117 @@
+Download the repo from remote to local:
+$ git clone https://github.com/abhijithvg/mydemo-oct21.git
+
+Sync the changes from remote repo to local repo:
+$ cd mydemo-oct21
+$ git pull origin main
+
+Source repo: https://github.com/creativeab88/source-project-oct21.git
+
+Clone the forked project:
+$ cd
+$ git clone <YOUR_FORKED_REPO_URL>
+$ cd source-project-oct21
+$ git remote add ssh-origin <FORKED_REPO_SSH_URL>
+
+$ echo "Your name" > yourfirstname.txt
+$ git add .
+$ git commit -m "Added yourfirstname.txt"
+
+$ git push ssh-origin main
+
+Remove a remote:
+$ git remote remove <remote_name>
+
+
+Branch:
+$ cd 
+$ git clone <YOUR_REPO_SSH_URL>
+$ cd <cloned_repo_name>
+
+To see the branches:
+$ git branch
+
+$ echo "My first file on main branch" > main.txt
+$ git add .
+$ git commit -m "Added main.txt on main branch"
+$ git log --oneline --decorate
+
+
+Create a new branch:
+$ git branch new_branch
+$ git branch
+
+
+Switch a branch:
+$ git checkout new_branch
+$ git branch
+$ git log --oneline --decorate
+
+Rename a branch:
+$ git branch -M demo 
+$ git branch
+$ git log --oneline --decorate
+
+
+$ echo "My first file on demo branch" > demo.txt
+$ git add .
+$ git commit -m "Added demo.txt on demo branch"
+$ git log --oneline --decorate
+$ git log --all --oneline --decorate --graph
+
+Push the branch to remote repo:
+$ git push origin --all
+
+
+Delete a branch:
+$ git branch test_branch
+$ git branch 
+$ git branch -d test_branch
+$ git branch 
+
+
+Merging branch branch:
+$ git checkout main 
+$ git branch
+$ git merge demo
+
+Conflict during merge:
+$ git branch demo1 
+$ git branch
+
+
+$ echo "Second line on main branch" >> demo.txt 
+$ git add .
+$ git commit -m "Added second line to demo.txt on main branch"
+$ git log --all --oneline --decorate --graph
+
+
+$ git checkout demo1
+$ git branch
+$ echo "Second line on demo1 branch" >> demo.txt 
+$ echo "Third line on demo1 branch" >> demo.txt 
+$ git add .
+$ git commit -m "Added second & third line to demo.txt on demo1 branch"
+$ git log --all --oneline --decorate --graph
+
+
+$ git checkout main
+$ git merge demo1
+$ nano demo.txt
+[Make the resolution changes]
+
+
+$ git add .
+$ git commit -m "New commit after merge conflict resolution"
+$ git log --all --oneline --decorate --graph
+
+$ git push origin --all
+
+
+Delete a branch on remote & local repo:
+$ git branch new_demo
+$ git push origin --all
+
+$ git branch -d new_demo
+$ git push origin --delete new_demo
+
